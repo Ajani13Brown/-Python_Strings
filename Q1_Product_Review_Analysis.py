@@ -43,10 +43,32 @@ python_reviews = [ "This product is really good. I'm impressed with its quality.
 positive_words = ["good", "excellent", "great", "awesome", "fantastic", "superb", "amazing"]
 negative_words = ["bad", "poor", "terrible", "horrible", "awful", "disappointing", "subpar"]
 
-def pos_and_neg_count():
-    for review in python_reviews:
-        for word in positive_words:
-            if word in review.lower():
-                print(review)
+# def pos_and_neg_count():
+#     for review in python_reviews:
+#         pos_total= 0
+#         neg_total =0
+#         for word in positive_words:
+#             pos_total += review.lower().count(word)
+#         for word in negative_words:
+#             neg_total += review.lower().count(word)
+#         print(pos_total, neg_total)
+#             #     if word in review.lower():
+#             # elif:
+#             #     for word in negative_words:
 
-pos_and_neg_count()
+# pos_and_neg_count()
+# #pos_and_neg_count()
+
+# Task 3: Review Summary
+# Implement a script that takes the first 30 characters of a review and appends "…" to create a summary.
+# Ensure that the summary does not cut off in the middle of a word.
+
+def summaries(python_reviews):
+    for review in python_reviews:
+        cutoff = 31
+        while review[cutoff].isalpha():
+            cutoff -= 1
+        summary = review[:cutoff]
+        print(f"{summary}... ")
+
+summaries(python_reviews)
